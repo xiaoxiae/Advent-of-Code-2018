@@ -4,9 +4,9 @@ input = open("04.in", "r")
 data = sorted(input.read().splitlines())
 
 guardData = {}
-i = 0
 
 # find sleeping patters for all guards
+i = 0
 while i < len(data):
     guardID = int(search("#[0-9]+ ", data[i]).group(0)[1:].strip())
 

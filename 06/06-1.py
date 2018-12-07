@@ -14,8 +14,8 @@ maxX,maxY = max(points, key=lambda v:v[0])[0], max(points, key=lambda v:v[1])[1]
 pointFrequency = [0] * len(data)
 for i in range(maxY + 1):
     for j in range(maxX + 1):
-        miDist = float("+inf")
-        minID = None
+        minDist = float("+inf")
+        minDistID = None
 
         # calculate distance from all points
         for k in range(len(points)):
@@ -24,18 +24,18 @@ for i in range(maxY + 1):
 
             # if there is a smaller distance, save that one instead
             # if two distances are equal, save neither (set id to None)
-            if distance < miDist:
-                miDist = distance
-                minID = k
-            elif distance == miDist:
-                minID = None
+            if distance < minDist:
+                minDist = distance
+                minDistID = k
+            elif distance == minDist:
+                minDistID = None
 
         # if there is a closest point, either increment its frequency, or set
         # the frequency to -1 if it's on the edge
-        if minID != None and pointFrequency[minID] != -1:
+        if minDistID != None and pointFrequency[minDistID] != -1:
             if i == 0 or i == maxY or j == 0 or j == maxX:
-                pointFrequency[minID] = -1
+                pointFrequency[minDistID] = -1
             else:
-                pointFrequency[minID] += 1
+                pointFrequency[minDistID] += 1
 
 print(max(pointFrequency))

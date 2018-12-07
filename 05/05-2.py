@@ -1,10 +1,10 @@
 from re import search
 
 def react(data):
-    """Returns the reacted string."""
+    """Returns a reacted string."""
     i = 0
     while i < len(data) - 1:
-        # in ascii, letter xor 32 is the letter in other case
+        # ascii letter number xor 32 is the same letter in opposite case
         if chr(ord(data[i]) ^ 32) == data[i + 1]:
             data = data[0:i] + data[i+2:]
             if i != 0:

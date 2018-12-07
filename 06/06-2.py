@@ -8,7 +8,7 @@ for i in range(len(data)):
     points.append((int(coords[0]), int(coords[1])))
 
 # find the maximum x and y values
-maxX, maxY = max(points, key=lambda v:v[0])[0], max(points, key=lambda v:v[1])[1]
+maxX,maxY = max(points, key=lambda v:v[0])[0], max(points, key=lambda v:v[1])[1]
 
 # go through each point on the board
 total = 0
