@@ -1,5 +1,3 @@
-from re import findall
-
 input = open("11.in", "r")
 serial = int(input.read().splitlines()[0])
 
