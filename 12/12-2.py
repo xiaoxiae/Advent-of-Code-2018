@@ -19,7 +19,8 @@ for rule in data[2:]:
 
 # iterate until we find the generation that repeats forever
 beginningIndex = -3     # the index of the plant that is first in the list
-generation = 0
+generation = 0          # which generation are we on
+previousNumber = ""     # the previous numberic representation of the generation
 while True:
     # resize the input array if necessary
     if input[2]:
@@ -40,11 +41,13 @@ while True:
     # the numberical representation of the generation
     number = int("".join(map(str, map(int, input)))[:-2], 2)
 
-    # the numberical representation of the genereation that repeats forever
-    if number == 1181558560646722760642249560921858460728675414315817288067:
-        # fast-forward the 50 000 000 000 generations
+    # check, whether the numberic representation doesn't repeat
+    if number == previousNumber:
+        # fast-forward the 5000000000 0 generations
         beginningIndex += 50000000000 - generation
         break
+
+    previousNumber = number
 
 # sum the result
 total = 0
